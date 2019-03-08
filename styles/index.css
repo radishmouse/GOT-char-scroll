@@ -1,0 +1,27 @@
+.alphabet div{
+    display:inline;
+    float:left;
+    padding:2px;
+}
+nav {
+
+}
+
+.main {
+    clear:both;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+}
+.characters {
+    width:30%;
+    height: 100%;
+    border: 2px solid purple;
+
+}
+
+.details {
+    width: 60%;
+    height: 100%;
+    border:2px solid orange;
+}
