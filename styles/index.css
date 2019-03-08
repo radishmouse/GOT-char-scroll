@@ -17,6 +17,9 @@ nav {
     width:30%;
     height: 100%;
     border: 2px solid purple;
+    position: relative; 
+    overflow-y: auto;
+    height: 100%;      
 
 }
 
