@@ -3,6 +3,15 @@
 //get pointer to the UL inside the character scrolling box
 const characterList = document.querySelector('[data-list');
 
+//get document selectors for each of the detail character elements
+const detailName = document.querySelector('[data-detail-name]');
+const detailTitles = document.querySelector('[data-detail-titles]');
+const detailAliases = document.querySelector('[data-detail-aliases]');
+const detailAffliations = document.querySelector('[data-detail-affliations]');
+const detailBorn = document.querySelector('[data-detail-born]');
+const detailDied = document.querySelector('[data-detail-died]');
+const detailTV = document.querySelector('[data-detail-tv]');
+const detailActor = document.querySelector('[data-detail-actor]');
 
 function fillCharacterBox(chardict){
     const allCharsNames = chardict.map(function(person) {
@@ -16,12 +25,21 @@ function fillCharacterBox(chardict){
     allCharsNames.forEach(function(char) {
         //create a list element for each charcter
         const charListElement = document.createElement('li');
+        //create event listeners for each of those li's
+        //does it mater that we don't have a unique name for them??
+        charListElement.addEventListener('click',getCharDetails)
         charListElement.textContent = char;
         characterList.append(charListElement);
     });
 }
 fillCharacterBox(characters);
-
+function getCharDetails(event){
+    // console.log(event);
+    //grabs the name
+    const Name = (event.path[0].textContent);
+    //cycle through the character list and get all the details
+    
+}
 // console.log(Object.keys(characters));
 //split characters into arrays
 function beginsWithLetter(char,letter){
