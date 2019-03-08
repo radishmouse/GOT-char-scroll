@@ -1,8 +1,29 @@
-console.log(`There are ${characters.length} characters in the array.`);
+// console.log(`There are ${characters.length} characters in the array.`);
+
+//get pointer to the UL inside the character scrolling box
+const characterList = document.querySelector('[data-list');
+
+
+function fillCharacterBox(chardict){
+    const allCharsNames = chardict.map(function(person) {
+        // console.log(person.name);
+        return person.name;
+    });
+    allCharsNames.sort();
+    console.log(allCharsNames);
+    //create a list element for each name
+    //append all list elements to character div
+    allCharsNames.forEach(function(char) {
+        //create a list element for each charcter
+        const charListElement = document.createElement('li');
+        charListElement.textContent = char;
+        characterList.append(charListElement);
+    });
+}
+fillCharacterBox(characters);
 
 // console.log(Object.keys(characters));
 //split characters into arrays
-
 function beginsWithLetter(char,letter){
     let count = 0;
     char.forEach(function(person){
