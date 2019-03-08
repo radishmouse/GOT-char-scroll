@@ -27,18 +27,39 @@ function fillCharacterBox(chardict){
         const charListElement = document.createElement('li');
         //create event listeners for each of those li's
         //does it mater that we don't have a unique name for them??
-        charListElement.addEventListener('click',getCharDetails)
+        charListElement.addEventListener('click',getCharDetails);
         charListElement.textContent = char;
         characterList.append(charListElement);
     });
 }
 fillCharacterBox(characters);
+
 function getCharDetails(event){
     // console.log(event);
     //grabs the name
     const Name = (event.path[0].textContent);
     //cycle through the character list and get all the details
-    
+    characters.forEach(function(person) {  
+            if (person.name === Name) {
+            title = person.title;   //array
+            alias = person.aliases //array
+            affiations = person.affiliations;  //array of urls
+            born = person.born;
+            died = person.died;
+            tv = person.tv; //array - only want full or not.  not is one element ""
+            actor = person.playedBy; //also an array
+        
+        }
+    });
+    // console.log(Name,title,alias,born);
+}
+
+function convertArrayToString(array){
+    //use \n\r to split lines and set css to use this
+    const len = array.length;
+    array.forEach(function(thing,i) {
+
+    })
 }
 // console.log(Object.keys(characters));
 //split characters into arrays
