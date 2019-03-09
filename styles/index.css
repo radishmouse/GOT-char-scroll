@@ -39,3 +39,21 @@ body {
     border:2px solid orange;
     display:inline-block;
 }
+
+.gridbox {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.subdata {
+    font-size: 20px;
+}
+
+.chacterList li{
+    font-size: 20px;
+}

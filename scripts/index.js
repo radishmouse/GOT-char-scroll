@@ -18,10 +18,17 @@ const navLetters = document.querySelector('[data-nav]');
 //add click event listener to any element in the nav
 navLetters.addEventListener('click',goToId);
 
+//takes you the id element inside the scrolling character list
 function goToId(event){
-    console.log(event);
-    console.log(event.path[0].textContent);
-    window.location.hash = '#'+event.path[0].textContent;
+    // console.log(event);
+    // console.log(event.path[0].textContent);
+    if (event.path[0].textContent === 'All') {
+        window.location.hash = '#A';
+    }
+    else{
+
+        window.location.hash = '#'+event.path[0].textContent;
+    }
 
 }
 // let myarray = [5,"yt",7,6];
