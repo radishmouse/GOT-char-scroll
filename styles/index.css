@@ -77,3 +77,8 @@ body {
 .chacterList li{
     font-size: 20px;
 }
+
+.selected {
+    color: white;
+    background-color: #c0533d;
+}

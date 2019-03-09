@@ -82,11 +82,15 @@ function getCharDetails(event){
     //adds a class 'selected' to the element
     temp1 = document.getSelection(event.target);
     console.log(temp1);
-    event.target.style.color='#ff0000';
-    // event.path[0].classlist.add("selected");
+    event.target.classList.add("selected");
+    // event.target.style.color='#ffffff';
+    // event.target.style.backgroundColor= "#c0533d"; 
+
     //removes the selected class from the previous element
     if (prevChar !== "") {
-        prevChar.style.color="default";
+        // prevChar.style.color="#000000";
+        prevChar.classList.remove("selected");
+
     }
     prevChar = event.target;
 
