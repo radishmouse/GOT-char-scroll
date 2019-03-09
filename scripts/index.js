@@ -7,7 +7,7 @@ const characterList = document.querySelector('[data-list');
 const detailName = document.querySelector('[data-detail-name]');
 const detailTitles = document.querySelector('[data-detail-titles]');
 const detailAliases = document.querySelector('[data-detail-aliases]');
-const detailAffliations = document.querySelector('[data-detail-affliations]');
+const detailAffliations = document.querySelector('[data-detail-house-affilations]');
 const detailBorn = document.querySelector('[data-detail-born]');
 const detailDied = document.querySelector('[data-detail-died]');
 const detailTV = document.querySelector('[data-detail-tv]');
@@ -81,7 +81,13 @@ function getCharDetails(event){
 
             const title = convertArrayToString(person.titles);   //array
             const alias = convertArrayToString(person.aliases); //array
+            //converts the url of the house to the name.
             const affiations = person.allegiances;  //array of urls
+            houseAffiliations = affiations.map(function(each){
+                return houses[each];
+            });
+        
+            const houseaff = convertArrayToString(houseAffiliations);
             const born = person.born;
             const died = person.died;
             const tv = convertArrayToString(person.tvSeries); //array - only want full or not.  not is one element ""
@@ -94,7 +100,7 @@ function getCharDetails(event){
             detailName.textContent = Name;
             detailTitles.textContent = title;
             detailAliases.textContent = alias;
-            // detailAffliations.textContent = born;
+            detailAffliations.textContent = houseaff;
             detailBorn.textContent = born;
             detailDied.textContent = died;
             detailTV.textContent = tv;
