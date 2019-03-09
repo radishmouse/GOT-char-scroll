@@ -18,10 +18,6 @@ const detailActor = document.querySelector('[data-detail-actor]');
 // console.log(myarray);
 // console.log(convertArrayToString(myarray));
 
-const testli = document.createElement('li');
-testli.textContent = 'testing focus';
-testli.id = 'M';
-
 
 function fillCharacterBox(chardict){
     const allCharsNames = chardict.map(function(person) {
@@ -31,19 +27,28 @@ function fillCharacterBox(chardict){
     allCharsNames.sort();
     // console.log(allCharsNames);
 
+    // when the first letter changes in this list, attach an id to that element equal to the first letter.  
+    //using a holder variable that is initialized to "ZZ" because nothing will match this.
+    let firstLetter = "ZZ";
     //create a list element for each name
     //append all list elements to character div
     allCharsNames.forEach(function(name) {
+        
         //create a list element for each charcter
         const charListElement = document.createElement('li');
         //create event listeners for each of those li's
         //does it mater that we don't have a unique name for them??
         charListElement.addEventListener('click',getCharDetails);
         charListElement.textContent = name;
+        //add if first new begining letter
+        if (name[0] !== firstLetter) {
+            charListElement.id = name[0];
+            firstLetter = name[0];
+        }
         characterList.append(charListElement);
+
     });
     //add one more li element with a data tag, so I can set focus to this for test
-    characterList.append(testli);
 }
 fillCharacterBox(characters);
 
