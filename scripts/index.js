@@ -13,6 +13,12 @@ const detailDied = document.querySelector('[data-detail-died]');
 const detailTV = document.querySelector('[data-detail-tv]');
 const detailActor = document.querySelector('[data-detail-actor]');
 
+
+// let myarray = [5,"yt",7,6];
+// console.log(myarray);
+// console.log(convertArrayToString(myarray));
+
+
 function fillCharacterBox(chardict){
     const allCharsNames = chardict.map(function(person) {
         // console.log(person.name);
@@ -41,25 +47,48 @@ function getCharDetails(event){
     //cycle through the character list and get all the details
     characters.forEach(function(person) {  
             if (person.name === Name) {
-            title = person.title;   //array
-            alias = person.aliases //array
-            affiations = person.affiliations;  //array of urls
-            born = person.born;
-            died = person.died;
-            tv = person.tv; //array - only want full or not.  not is one element ""
-            actor = person.playedBy; //also an array
+
+            const title = convertArrayToString(person.titles);   //array
+            const alias = convertArrayToString(person.aliases); //array
+            const affiations = person.allegiances;  //array of urls
+            const born = person.born;
+            const died = person.died;
+            const tv = convertArrayToString(person.tvSeries); //array - only want full or not.  not is one element ""
+            const actor = convertArrayToString(person.playedBy); //also an array
         
+            console.log(Name,title,alias,born,died,tv,actor);
+
+            //change the values for these in your dom
+
+            detailName.textContent = Name;
+            detailTitles.textContent = title;
+            detailAliases.textContent = alias;
+            // detailAffliations.textContent = born;
+            detailBorn.textContent = born;
+            detailDied.textContent = died;
+            detailTV.textContent = tv;
+            detailActor.textContent = actor;
+            
+
         }
     });
-    // console.log(Name,title,alias,born);
 }
 
 function convertArrayToString(array){
+    // console.log(array);
     //use \n\r to split lines and set css to use this
     const len = array.length;
+    let str = "";
     array.forEach(function(thing,i) {
+        if (i === 0) {   //first
+            str += thing;
+        }
+        else {  //not first
+            str += "\n\r"+thing;
+        }
 
-    })
+    });
+    return str;
 }
 // console.log(Object.keys(characters));
 //split characters into arrays
@@ -73,8 +102,8 @@ function beginsWithLetter(char,letter){
     });
     return count;
 }
-console.log(`There are ${beginsWithLetter(characters,"A")} characters with names beginning with A`);
-console.log(`There are ${beginsWithLetter(characters,"Z")} characters with names beginning with Z`);
+// console.log(`There are ${beginsWithLetter(characters,"A")} characters with names beginning with A`);
+// console.log(`There are ${beginsWithLetter(characters,"Z")} characters with names beginning with Z`);
 
 function deadCount(char){
     let count = 0;
@@ -86,7 +115,7 @@ function deadCount(char){
     return count;
 }
 
-console.log(`There are ${deadCount(characters)} dead characters.`)
+// console.log(`There are ${deadCount(characters)} dead characters.`)
 
 //who has the most titles 
 
@@ -101,7 +130,7 @@ function mostTitles(char){
     });
     return [mostTitles , highTitleCount];
 }
-console.log(`The character with the most titles is ${mostTitles(characters)[0]}.  He has ${mostTitles(characters)[1]}.`);
+// console.log(`The character with the most titles is ${mostTitles(characters)[0]}.  He has ${mostTitles(characters)[1]}.`);
 
 
 //valyrian
@@ -116,7 +145,7 @@ function valyrianCount(char){
     //number of people with 'Valyrian' listed in their culture 
     return valyrianCount;  
 }
-console.log(`There are ${valyrianCount(characters)} characters who are part of the Valyrian Culture.`);
+// console.log(`There are ${valyrianCount(characters)} characters who are part of the Valyrian Culture.`);
 
 function hotPie(char){
     //playedBy is an array...
@@ -135,7 +164,7 @@ function hotPie(char){
     return allActors;
 
 }
-console.log(`The character Hot Pie is played by ${hotPie(characters)}.`);
+// console.log(`The character Hot Pie is played by ${hotPie(characters)}.`);
 
 function hotPieFilter(char){
    return char.filter(function(person){
@@ -146,7 +175,7 @@ function hotPieFilter(char){
     });
 }
 
-console.log(hotPieFilter(characters));
+// console.log(hotPieFilter(characters));
 
 //how many characters are not in the tv series
 //tv series is an array.  ['season1','season2']
@@ -160,7 +189,7 @@ function notTv(char){
     })
     return noTvCount;
 }
-console.log(`There are ${notTv(characters)} characters that are NOT in the TV Series.`)
+// console.log(`There are ${notTv(characters)} characters that are NOT in the TV Series.`)
 
 function Targaryen(char){
     newArray = []
@@ -172,7 +201,7 @@ function Targaryen(char){
     });
     return newArray;
 }
-console.log(`These ${Targaryen(characters).length} people are Targaryens ${Targaryen(characters)}.`);
+// console.log(`These ${Targaryen(characters).length} people are Targaryens ${Targaryen(characters)}.`);
 
 // console.log(houses);
 
@@ -189,7 +218,7 @@ function houseCount(char){
 houseCount(characters);
 //a list of all the alligiances summed by house.  alligiance url converted to house  name based on previous python  dictionary created
 
-console.log(houseHist);
+// console.log(houseHist);
 
 //rewrite house histogram with the es6 Map prototype functionality.
 
@@ -218,4 +247,4 @@ function houseHistMap(char){
         });
         return houseHist2;
 }
-console.log(houseHistMap(characters));
+// console.log(houseHistMap(characters));

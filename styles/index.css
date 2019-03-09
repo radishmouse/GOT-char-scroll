@@ -34,6 +34,8 @@ body {
 
 .details {
     width: 60%;
+   
     height: 100%;
     border:2px solid orange;
+    display:inline-block;
 }
