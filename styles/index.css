@@ -1,3 +1,11 @@
+
+ul {
+    margin:0;
+    padding:2px;
+    width:100%;
+    /* padding-right:100; */
+}
+
 .alphabet div{
     display:inline;
     float:left;
@@ -45,11 +53,12 @@ body {
 }
 .chacterList {
     position: absolute;
-    left: -10%;
+    /* left: -5%; */
     /* right: 10%; */
 }
 .chacterList li{
     list-style-type: none;
+
 }
 .details {
     width: 60%;
