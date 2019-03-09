@@ -18,6 +18,10 @@ const detailActor = document.querySelector('[data-detail-actor]');
 // console.log(myarray);
 // console.log(convertArrayToString(myarray));
 
+const testli = document.createElement('li');
+testli.textContent = 'testing focus';
+testli.id = 'M';
+
 
 function fillCharacterBox(chardict){
     const allCharsNames = chardict.map(function(person) {
@@ -25,20 +29,27 @@ function fillCharacterBox(chardict){
         return person.name;
     });
     allCharsNames.sort();
-    console.log(allCharsNames);
+    // console.log(allCharsNames);
+
     //create a list element for each name
     //append all list elements to character div
-    allCharsNames.forEach(function(char) {
+    allCharsNames.forEach(function(name) {
         //create a list element for each charcter
         const charListElement = document.createElement('li');
         //create event listeners for each of those li's
         //does it mater that we don't have a unique name for them??
         charListElement.addEventListener('click',getCharDetails);
-        charListElement.textContent = char;
+        charListElement.textContent = name;
         characterList.append(charListElement);
     });
+    //add one more li element with a data tag, so I can set focus to this for test
+    characterList.append(testli);
 }
 fillCharacterBox(characters);
+
+window.location.hash = '#M';
+
+// testli.focus();
 
 function getCharDetails(event){
     // console.log(event);
