@@ -27,7 +27,7 @@ body {
 
 .main {
     clear:both;
-    height: 600px;
+    height: 540px;
     display: flex;
     flex-direction: row;
 }
