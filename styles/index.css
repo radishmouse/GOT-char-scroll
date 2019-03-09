@@ -38,7 +38,15 @@ body {
     height: 100%;
     border:2px solid orange;
     display:inline-block;
+    /* text with split on \n\r */
     white-space: pre-line;  
+
+    display:flex;
+    flex-direction: column;
+    
+    overflow-y: auto;
+    height: 100%;      
+
 
 }
 
