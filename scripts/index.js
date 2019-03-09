@@ -13,7 +13,17 @@ const detailDied = document.querySelector('[data-detail-died]');
 const detailTV = document.querySelector('[data-detail-tv]');
 const detailActor = document.querySelector('[data-detail-actor]');
 
+//get a selector to the navigation block
+const navLetters = document.querySelector('[data-nav]');
+//add click event listener to any element in the nav
+navLetters.addEventListener('click',goToId);
 
+function goToId(event){
+    console.log(event);
+    console.log(event.path[0].textContent);
+    window.location.hash = '#'+event.path[0].textContent;
+
+}
 // let myarray = [5,"yt",7,6];
 // console.log(myarray);
 // console.log(convertArrayToString(myarray));
@@ -51,8 +61,6 @@ function fillCharacterBox(chardict){
     //add one more li element with a data tag, so I can set focus to this for test
 }
 fillCharacterBox(characters);
-
-window.location.hash = '#M';
 
 // testli.focus();
 
