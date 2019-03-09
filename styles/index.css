@@ -2,8 +2,17 @@
     display:inline;
     float:left;
     padding:2px;
+    border: 2px solid #5a4348;
+    margin:5px;
+    background-color: #cdc3b7;
+    border-radius: 5px;
+}
+.maintitle {
+    text-align: center;
 }
 nav {
+    width:99%;
+    /* margin:auto; */
 
 }
 body {
