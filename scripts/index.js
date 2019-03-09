@@ -26,7 +26,6 @@ function goToId(event){
         window.location.hash = '#A';
     }
     else{
-
         window.location.hash = '#'+event.path[0].textContent;
     }
 
@@ -73,27 +72,27 @@ fillCharacterBox(characters);
 //create variable to old the previous name selected
 let prevChar = "";
 function getCharDetails(event){
-    console.log(event);
+    // console.log(event);
+
     //grabs the name
     const Name = (event.path[0].textContent);
-    //cycle through the character list and get all the details
-
-
+    
+    
     //adds a class 'selected' to the element
-    temp1 = document.getSelection(event.target);
-    console.log(temp1);
+    // temp1 = document.getSelection(event.target);
     event.target.classList.add("selected");
     // event.target.style.color='#ffffff';
     // event.target.style.backgroundColor= "#c0533d"; 
-
+    
     //removes the selected class from the previous element
     if (prevChar !== "") {
         // prevChar.style.color="#000000";
         prevChar.classList.remove("selected");
-
+        
     }
     prevChar = event.target;
-
+    
+    //cycle through the character list and get all the details
 
     characters.forEach(function(person) {  
             if (person.name === Name) {
@@ -112,7 +111,7 @@ function getCharDetails(event){
             const tv = convertArrayToString(person.tvSeries); //array - only want full or not.  not is one element ""
             const actor = convertArrayToString(person.playedBy); //also an array
         
-            console.log(Name,title,alias,born,died,tv,actor);
+            // console.log(Name,title,alias,born,died,tv,actor);
 
             //change the values for these in your dom
 
