@@ -70,12 +70,27 @@ function fillCharacterBox(chardict){
 fillCharacterBox(characters);
 
 // testli.focus();
-
+//create variable to old the previous name selected
+let prevChar = "";
 function getCharDetails(event){
-    // console.log(event);
+    console.log(event);
     //grabs the name
     const Name = (event.path[0].textContent);
     //cycle through the character list and get all the details
+
+
+    //adds a class 'selected' to the element
+    temp1 = document.getSelection(event.target);
+    console.log(temp1);
+    event.target.style.color='#ff0000';
+    // event.path[0].classlist.add("selected");
+    //removes the selected class from the previous element
+    if (prevChar !== "") {
+        prevChar.style.color="default";
+    }
+    prevChar = event.target;
+
+
     characters.forEach(function(person) {  
             if (person.name === Name) {
 

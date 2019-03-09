@@ -22,6 +22,9 @@ body {
     display: flex;
     flex-direction: row;
 }
+.main div {
+    margin: 2px;
+}
 .characters {
     width:30%;
     height: 100%;
@@ -31,7 +34,14 @@ body {
     height: 100%;      
 
 }
-
+.chacterList {
+    position: absolute;
+    left: -10%;
+    /* right: 10%; */
+}
+.chacterList li{
+    list-style-type: none;
+}
 .details {
     width: 60%;
    
@@ -43,7 +53,7 @@ body {
 
     display:flex;
     flex-direction: column;
-    
+
     overflow-y: auto;
     height: 100%;      
 
