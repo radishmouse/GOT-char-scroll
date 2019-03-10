@@ -30,7 +30,8 @@ body {
     background-size: contain;
     background-size: 100%;
     */
-    background-color: rgb(207, 171, 120);
+    /* background-color: rgb(207, 171, 120); */
+    background-color:#dbc2b0;  /* fb setting plaster */
 }
 
 .main {
@@ -60,11 +61,14 @@ body {
     list-style-type: none;
 
 }
+.chacterList li:nth-child(even) {
+    background-color: #ecd8ca; /*pink ground*/
+}
 .details {
     width: 60%;
    
     height: 100%;
-    border:2px solid orange;
+    border:2px solid purple;
     display:inline-block;
     /* text with split on \n\r */
     white-space: pre-line;  
@@ -98,5 +102,6 @@ body {
 
 .selected {
     color: white;
-    background-color: #c0533d;
+    /* color: #954347; */
+    background-color: #c0533d !important;
 }
