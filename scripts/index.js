@@ -18,6 +18,9 @@ const navLetters = document.querySelector('[data-nav]');
 //add click event listener to any element in the nav
 navLetters.addEventListener('click',goToId);
 
+// I did say that ID's weren't the best :)
+// But! This is exactly what they're specifically good for!
+// Very nice work finding this technique.
 //takes you the id element inside the scrolling character list
 function goToId(event){
     // console.log(event);
@@ -36,6 +39,10 @@ function goToId(event){
 
 
 function fillCharacterBox(chardict){
+  // Though Object.keys() would get the same result, I personally like your .map approach.
+  // The reason being that it gives you the opportunity to modify the .name property if you
+  // needed to. (For example, if you wanted to, how might you adjust it so that each character's
+  // name is shown as "Last, First"?)
     const allCharsNames = chardict.map(function(person) {
         // console.log(person.name);
         return person.name;
@@ -53,7 +60,7 @@ function fillCharacterBox(chardict){
         //create a list element for each charcter
         const charListElement = document.createElement('li');
         //create event listeners for each of those li's
-        //does it mater that we don't have a unique name for them??
+        //does it mater that we don't have a unique name for them?? // Totally fine for this exercise!
         charListElement.addEventListener('click',getCharDetails);
         charListElement.textContent = name;
         //add if first new begining letter
@@ -75,7 +82,12 @@ function getCharDetails(event){
     // console.log(event);
 
     //grabs the name
-    const Name = (event.path[0].textContent);
+    const Name = (event.path[0].textContent);  // Slick way to get info from what was clicked!
+  // But, as you noticed earlier, since multiple characters have the same name, this may
+  // not give us exactly what we're expecting. As I mentioned, not at all a big deal for this exercise.
+  // On the other hand, in your character list, you could give each character an extra data attribute, one
+  // that holds the `.id` value from the API.
+  // Then, you could use that to identify the specific object in the array to show.
     
     
     //adds a class 'selected' to the element
@@ -87,7 +99,7 @@ function getCharDetails(event){
     //removes the selected class from the previous element
     if (prevChar !== "") {
         // prevChar.style.color="#000000";
-        prevChar.classList.remove("selected");
+        prevChar.classList.remove("selected"); // :thumbsup:
         
     }
     prevChar = event.target;
@@ -129,6 +141,8 @@ function getCharDetails(event){
     });
 }
 
+// Loving the hand-written utility functions!
+// Just fyi, search for Array.prototype.join on MDN
 function convertArrayToString(array){
     // console.log(array);
     //use \n\r to split lines and set css to use this
@@ -176,7 +190,7 @@ function deadCount(char){
 
 function mostTitles(char){
     let highTitleCount = 0;
-    let mostTitles = ""
+    let mostTitles = "";
     char.forEach(function(person){
         if (person.titles.length > highTitleCount) {
             mostTitles = person.name;
@@ -241,13 +255,14 @@ function notTv(char){
         if ((person.tvSeries.length == 1) && (person.tvSeries[0].length == 0)) {
             noTvCount += 1;
         }
-    })
+    });
     return noTvCount;
 }
 // console.log(`There are ${notTv(characters)} characters that are NOT in the TV Series.`)
 
 function Targaryen(char){
-    newArray = []
+  // Using .search is a great approach, but also consider combining with .filter
+    const newArray = []
     char.forEach(function(person){
         //if the search expression not matched, returns neg 1
         if (person.name.search("Targaryen") !== -1) {
